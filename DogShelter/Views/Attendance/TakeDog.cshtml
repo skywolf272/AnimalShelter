@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DogShelter.Models.Dog>
+
+
+<div class="album py-5 bg-light">
+    <div class="row">
+        @foreach (Dog dog in Model)
+        {
+            @*<div class="bg-light" style="width: 500px; padding: 10%;">
+                    <img src="@dog.ImgPath" alt="@dog.Nickname" width="400">
+                    <h4>Кличка: @dog.Nickname</h4>
+                    <h6>Возраст: @dog.Age</h6>
+                    <h6>Пол: @dog.Male</h6>
+                    <h6>Описаниие: @dog.ShortDesc</h6>
+                </div>*@
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="@dog.ImgPath" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">@dog.ShortDesc</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary bg-primary text-white">Узнать больше</button>
+                            </div>
+                            <small class="text-muted">@dog.DogPostDate.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

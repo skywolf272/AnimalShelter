@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DogShelter</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="@Url.Content("~/css/style.css")" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+            <a class="navbar-brand" asp-area="Admin" asp-controller="Admin" asp-action="Index">DogShelter</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Admin" asp-controller="Admin" asp-action="Index">Новости</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Admin" asp-controller="Admin" asp-action="AboutUs">О нас</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Услуги
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="TakeCare">Отдать на передержку</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="TakeDog">Взять питомца</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="GiveDog">Отдать дога</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Help">Приюту</a>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - DogShelter - <a asp-area="" asp-controller="Home" asp-action="AboutUs">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

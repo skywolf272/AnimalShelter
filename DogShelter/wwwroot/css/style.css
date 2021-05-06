@@ -1,0 +1,41 @@
+﻿.NewsBlock {
+    transition: 0.5s;
+    width: 65%;
+}
+
+.NewsBlock:hover {
+    transform: scale(1.1);
+}
+
+.TakeBlock {
+    width:35%;
+    border: double 3px red;
+}
+
+.FlexBoxColumn {
+    display: flex;
+    flex-direction: row;
+}
+
+.gradient {
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+}
+
+.gradient:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+    left: 0;
+    background: transparent;
+    background-image: linear-gradient(to left, #11de93, #0e7ad6);
+    opacity: 0.8;
+}
+
+button {
+border:none;
+}
