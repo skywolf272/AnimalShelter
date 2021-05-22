@@ -13,7 +13,7 @@ namespace DogShelter.Models
         public DateTime DogPostDate { get; set; }
         public string Nickname { get; set; }
         public bool Male { get; set; }
-        public int Age { get; set; }
+        public string Age { get; set; }
         public string ShortDesc { get; set; }
         public string Desc { get; set; }
         public string ImgPath { get; set; }

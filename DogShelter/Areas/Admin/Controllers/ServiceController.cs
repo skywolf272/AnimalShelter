@@ -23,29 +23,22 @@ namespace DogShelter.Areas.Admin.Controllers
             DB = _DB;
         }
 
-        public IActionResult TakeCare()
+        [HttpGet]
+        public IActionResult OverexposureList()
         {
-            return PartialView("TakeCare", new News { Title = "pivo" });
+            //DB.OverexposureDogs.ToList();
+            return View();
         }
 
-        public IActionResult TakeDog()
+        [HttpGet]
+        public IActionResult ShelterDogsList()
         {
             return View(DB.DogPosts.ToList());
         }
 
-        [HttpGet]
-        public IActionResult GiveDog()
+        public IActionResult OrdersForShelter()
         {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> GiveDog(Dog dog)
-        {
-            if (ModelState.IsValid)
-            {
-                return RedirectToAction("TakeDog", "Attendance");
-            }
+            //DB.OrdersForShelter.ToList();
             return View();
         }
     }

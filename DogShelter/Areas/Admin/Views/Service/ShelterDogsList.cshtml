@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DogShelter.Models.Dog>
+
+<a class="btn btn-sm btn-outline-secondary bg-primary text-white" asp-area="Admin" asp-controller="Creator" asp-action="DogPost">Новый пост</a>
+<div class="album py-5 bg-light">
+    <div class="row">
+        @foreach (Dog dog in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="@dog.ImgPath" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">@dog.ShortDesc</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary bg-primary text-white" asp-area="Admin" asp-controller="Service" asp-action="More" asp-route-ID="@dog.ID">Узнать больше</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary bg-primary text-white" asp-area="Admin" asp-controller="Creator" asp-action="EditDogPost" asp-route-ID="@dog.ID">Изменить пост</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary bg-warning text-white" asp-area="Admin" asp-controller="Creator" asp-action="DeleteDogPost" asp-route-ID="@dog.ID">Удалить пост</button>
+                            </div>
+                            <small class="text-muted">@dog.DogPostDate.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

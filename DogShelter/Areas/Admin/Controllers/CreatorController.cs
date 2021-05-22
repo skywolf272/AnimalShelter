@@ -58,6 +58,32 @@ namespace DogShelter.Areas.Admin.Controllers
             return View(newPostModel);
         }
 
+        [HttpGet]
+        public IActionResult DogPost()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DogPost(DogPostModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string uniqueFileName = Guid.NewGuid().ToString();
+                string fileExtension = Path.GetExtension(model.Img11.FileName);
+                model.Dog.ImgPath = "/img/" + uniqueFileName + fileExtension;
+                using (var fileStream = new FileStream(Path.Combine(HostEnvironment.WebRootPath + "/img/", uniqueFileName) + fileExtension, FileMode.Create))
+                {
+                    await model.Img11.CopyToAsync(fileStream);
+                }
+                model.Dog.DogPostDate = DateTime.Today;
+                DB.DogPosts.Add(model.Dog);
+                await DB.SaveChangesAsync();
+                return RedirectToAction("TakeDog", "Service", new { area = "Admin" });
+            }
+            return View(model);
+        }
+
         [HttpPost]
         public async Task<IActionResult> DeletePost(string postID)
         {
@@ -66,6 +92,24 @@ namespace DogShelter.Areas.Admin.Controllers
             DB.News.Remove(newToDelete);
             await DB.SaveChangesAsync();
             return RedirectToAction("Index", "Admin", new { area = "Admin"});
+        }
+
+        public async Task<IActionResult> DeleteDogPost(int ID)
+        {
+            Dog dogToDelete = DB.DogPosts.FirstOrDefault( x => x.ID == ID);
+            DB.DogPosts.Attach(dogToDelete);
+            DB.DogPosts.Remove(dogToDelete);
+            await DB.SaveChangesAsync();
+            return RedirectToAction("TakeDog", "Service", new { area = "Admin" });
+        }
+
+        public async Task<IActionResult> EditDogPost(int ID)
+        {
+            Dog dogToEdit = DB.DogPosts.FirstOrDefault(x => x.ID == ID);
+            DB.DogPosts.Attach(dogToEdit);
+            DB.DogPosts.Remove(dogToEdit);
+            await DB.SaveChangesAsync();
+            return RedirectToAction("DogPost", "Creator", new { area = "Admin", dog = dogToEdit });
         }
     }
 }

@@ -1,0 +1,39 @@
+﻿@model DogShelter.Models.DogPostModel;
+
+<div asp-validation-summary="All">
+    <form asp-area="Admin" asp-controller="Creator" asp-action="DogPost" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Dog.Nickname">Кличка</label>
+            <input asp-for="Dog.Nickname" required="">
+            <span asp-validation-for="Dog.Nickname"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dog.ShortDesc">Краткое описание</label>
+            <input asp-for="Dog.ShortDesc" class="form-control" required="">
+            <span asp-validation-for="Dog.ShortDesc"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dog.Desc">Полное описание</label>
+            <textarea asp-for="Dog.Desc" class="form-control" required=""></textarea>
+            <span asp-validation-for="Dog.Desc"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dog.Age">Возраст</label>
+            <input asp-for="Dog.Age" class="form-control" required="">
+            <span asp-validation-for="Dog.Age"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dog.Male">Пол</label>
+            <input asp-for="Dog.Male" type="radio" name="MyRadioField" value="Мальчик" required="" />
+            <input asp-for="Dog.Male" type="radio" name="MyRadioField" value="Девочка" required="" />
+            <span asp-validation-for="Dog.Age"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Img11">Фото</label>
+            <input asp-for="Img11" class="form-control-file" accept="image/jpeg,image/png" type="file" required="" multiple />
+            <span asp-validation-for="Img11"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -16,19 +16,21 @@
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Admin" asp-action="Index">Новости</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="Admin" asp-controller="Admin" asp-action="AboutUs">О нас</a>
-                </li>
+                @*<li class="nav-item">
+            <a class="nav-link" asp-area="Admin" asp-controller="Admin" asp-action="AboutUs">О нас</a>
+        </li>*@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Услуги
+                        Питомцы приюта
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="TakeCare">Отдать на передержку</a>
-                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="TakeDog">Взять питомца</a>
-                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="GiveDog">Отдать дога</a>
-                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Help">Приюту</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="OverexposureList">Список питомцев на передержку</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="ShelterDogsList">Список питомцев приюта</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="OrdersForShelter">Предложения о сдаче питомцев в приют</a>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Help">Приюту</a>
                 </li>
             </ul>
 
@@ -39,7 +41,7 @@
             </ul>
         </nav>
     </header>
-    <div class="container">
+    <div class="container mt-4">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

@@ -392,3 +392,6 @@ C:\Programming\ASP\DogShelter\DogShelter\obj\Debug\netcoreapp3.1\Razor\Areas\Adm
 C:\Programming\ASP\DogShelter\DogShelter\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Programming\ASP\DogShelter\DogShelter\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Creator\NewPost.cshtml.g.cs
 C:\Programming\ASP\DogShelter\DogShelter\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Creator\Index.cshtml.g.cs
+C:\Programming\ASP\DogShelter\DogShelter\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Creator\DogPost.cshtml.g.cs
+C:\Programming\ASP\DogShelter\DogShelter\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Service\ShelterDogsList.cshtml.g.cs
+C:\Programming\ASP\DogShelter\DogShelter\obj\Debug\netcoreapp3.1\Razor\Views\Attendance\MoreAboutDog.cshtml.g.cs

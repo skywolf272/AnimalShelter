@@ -5,7 +5,7 @@
 }
 
 <div class="FlexBoxColumn">
-    <div style="width:70%">
+    <div style="width:70%; overflow:hidden">
     @foreach (DogShelter.Models.News news in Model.News)
     {
         <a asp-area="" asp-controller="Home" asp-action="CurrentNew" asp-route-NewID="@news.ID" style="overflow:hidden">

@@ -9,7 +9,6 @@
 
 .TakeBlock {
     width:35%;
-    border: double 3px red;
 }
 
 .FlexBoxColumn {
@@ -39,3 +38,36 @@
 button {
 border:none;
 }
+
+a.boton1 {
+    background: #eee;
+    color: #088;
+    text-decoration: none;
+    display: block;
+    width: 90px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px 10px;
+    transition: all 0.3s;
+}
+
+    a.boton1:hover {
+        box-shadow: 0px -5px 0 #088 inset;
+    }
+
+.login-button {
+    background-color: transparent;
+    border: 1.5px solid #f2f5f7;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    margin-left: 2vw;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+    .login-button:hover {
+        color: #131418;
+        background-color: #f2f5f7;
+        border: 1.5px solid #f2f5f7;
+        transition: all ease-in-out 350ms;
+    }

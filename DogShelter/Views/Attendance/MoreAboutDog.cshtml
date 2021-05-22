@@ -1,0 +1,36 @@
+﻿@model DogShelter.Models.Dog
+
+<div class="card login-card">
+    <div class="row no-gutters">
+        <div class="col-md-5">
+            <img src="@Model.ImgPath" class="login-card-img" style="max-width: 100%">
+        </div>
+        <div class="col-md-7">
+            <div class="card-body">
+                <div class="brand-wrapper">
+                    <h1>@Model.Nickname</h1>
+                </div>
+                @if (Model.Male)
+                {
+                    <p class="login-card-description">Пол: мальчик</p>
+                }
+                else
+                {
+                    <p class="login-card-description">Пол: девочка</p>
+                }
+                <div class="form-group">
+                    <p>Возраст: @Model.Age</p>
+                </div>
+                <div class="form-group mb-4">
+                    <p>Описание: @Model.Desc</p>
+                </div>
+                <small class="text-muted align-self-end">@Model.DogPostDate.Day.@Model.DogPostDate.Month.@Model.DogPostDate.Year</small>
+                @*<p class="login-card-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
+        <nav class="login-card-footer-nav">
+            <a href="#!">Terms of use.</a>
+            <a href="#!">Privacy policy</a>
+        </nav>*@
+            </div>
+        </div>
+    </div>
+</div>
