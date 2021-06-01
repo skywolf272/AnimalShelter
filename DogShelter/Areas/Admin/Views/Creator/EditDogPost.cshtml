@@ -1,0 +1,46 @@
+﻿@model DogShelter.Models.EditDogPostModel;
+
+<div class="container mt-3" asp-validation-summary="All">
+    <form asp-area="Admin" asp-controller="Creator" asp-action="EditDogPost" method="post" enctype="multipart/form-data">
+
+        <input asp-for="Dog.ID" type="hidden" />
+        <input asp-for="Dog.ImgPath" type="hidden" />
+        <input asp-for="Dog.DogPostDate" type="hidden" />
+        <div class="form-group">
+            <label asp-for="Dog.Nickname">Кличка</label>
+            <input asp-for="Dog.Nickname" required="">
+            <span asp-validation-for="Dog.Nickname"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dog.ShortDesc">Краткое описание</label>
+            <input asp-for="Dog.ShortDesc" class="form-control" required="">
+            <span asp-validation-for="Dog.ShortDesc"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dog.Desc">Полное описание</label>
+            <textarea asp-for="Dog.Desc" class="form-control" required="" rows="7"></textarea>
+            <span asp-validation-for="Dog.Desc"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dog.Age">Возраст</label>
+            <input asp-for="Dog.Age" class="form-control" required="">
+            <span asp-validation-for="Dog.Age"></span>
+        </div>
+        <div class=" form-group">
+            <label asp-for="Dog.Male">Мальчик</label>
+            <input asp-for="Dog.Male" type="radio" name="MyRadioField" value="True" required="" />
+            <label asp-for="Dog.Male">Девочка</label>
+            <input asp-for="Dog.Male" type="radio" name="MyRadioField" value="False" required="" />
+            <span asp-validation-for="Dog.Male"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Img11">Обновить фото</label>
+            <input asp-for="Img11" class="form-control-file" accept="image/jpeg,image/png" type="file" multiple />
+            <span asp-validation-for="Img11"></span>
+
+            <img src="@Model.Dog.ImgPath" class="m-3" style="width: 400px;" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Создать</button>
+    </form>
+</div>

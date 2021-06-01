@@ -1,0 +1,54 @@
+﻿@model DogShelter.Models.NewsViewModel
+
+@{ ViewData["Title"] = "Home Page"; }
+
+<div class="d-flex">
+    <div class="container d-flex flex-wrap mt-3 align-content-start justify-content-center">
+        <h2 style="margin-right: 400px; ">Новости</h2>
+        <div class="container" style=" margin-left: 40%;">
+            <a class="btn btn-primary mb-3 ml-auto mr-auto" asp-area="Admin" asp-controller="Creator" asp-action="NewPost">Написать пост</a>
+        </div>
+        @foreach (DogShelter.Models.News news in Model.News)
+        {
+            <div>
+                <form asp-area="Admin" asp-controller="Admin" asp-action="CurrentNew" asp-route-ID="@news.ID" style="width:500;">
+                    <button class="container NewsBlock rounded" style="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(60, 100, 93, 0.73)), url( @news.ImgPath );
+                    height: 600px;
+                    width: 800px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    z-index: -1;
+                    overflow: hidden;">
+                        <h2>@news.Title</h2>
+                        <p>@news.ShortDesc</p>
+                    </button>
+                </form>
+                <a class="btn btn-info mb-5 mt-2" asp-area="Admin" asp-controller="Creator" asp-action="EditNewPost" asp-route-ID="@news.ID">Редактировать пост</a>
+                <a class="btn btn-warning mb-5 mt-2" asp-area="Admin" asp-controller="Creator" asp-action="DeletePost" asp-route-ID="@news.ID">Удалить пост</a>
+            </div>
+
+        }
+    </div>
+    <div class="TakeBlock container m-3 mr-3">
+        @foreach (DogShelter.Models.Dog dogs in Model.NewestDogs)
+        {
+
+         <div class="container" style="max-width: 500px;">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="@dogs.ImgPath" data-holder-rendered="true">
+                <div class="card-body">
+                    <p class="card-text">@dogs.ShortDesc</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary bg-primary text-white">Узнать больше</button>
+                        </div>
+                        <small class="text-muted">@dogs.DogPostDate</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        }
+    </div>
+</div>

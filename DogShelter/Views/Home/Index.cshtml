@@ -1,0 +1,52 @@
+﻿@model DogShelter.Models.NewsViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="d-flex">
+    <div class="container d-flex flex-wrap mt-3 align-content-start justify-content-center" style="margin-left:10%;overflow:hidden">
+    <h2 style="margin-right: 400px; ">Новости</h2>
+    @foreach (DogShelter.Models.News news in Model.News)
+    {
+        <a class="m-3" asp-area="" asp-controller="Home" asp-action="CurrentNew" asp-route-NewID="@news.ID" style="width:500;">
+            <button class="container NewsBlock rounded" style="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(60, 100, 93, 0.73)), url( @news.ImgPath );
+        height: 600px;
+        width: 800px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        z-index: -1;
+        overflow: hidden;">
+                <h2>@news.Title</h2>
+                <h4>@news.ShortDesc</h4>
+            </button>
+        </a>
+
+    }
+    </div>
+    <div class="TakeBlock container m-3 mr-3">
+        <h3 style="margin-left: 40%;">Недавно в приюте</h3>
+        @foreach (Dog dog in Model.NewestDogs)
+        {
+        <div class="container" style="margin-right: 5%;max-width: 400px;">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="@dog.ImgPath" data-holder-rendered="true">
+                <div class="card-body">
+                    <h4 class="card-text">@dog.Nickname</h4>
+                    <p class="card-text">@dog.ShortDesc</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-secondary bg-primary text-white" asp-controller="Attendance" asp-action="MoreAboutDog" asp-route-ID="@dog.ID">Узнать больше</a>
+                        </div>
+                        <small class="text-muted">@dog.DogPostDate.Day.@dog.DogPostDate.Month.@dog.DogPostDate.Year</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+
+    </div>
+</div>
+
+   @* @await Html.PartialAsync("/Views/Attendance/TakeCare.cshtml");*@

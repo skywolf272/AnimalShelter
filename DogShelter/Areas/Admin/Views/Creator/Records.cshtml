@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DogShelter.Models.AppointmentToShelter>
+
+    <div class="container mt-3 d-flex flex-wrap">
+        @foreach (var order in Model)
+        {
+        <div class="card mt-2 mb-2" style="width: 300px">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Имя: @order.FirstName</li>
+                <li class="list-group-item">Телефон: @order.Tel</li>
+                <li class="list-group-item">Дата записи: @order.DateTime.Day.@order.DateTime.Month.@order.DateTime.Year @order.DateTime.Hour:00</li>
+            </ul>
+            <a asp-area="Admin" asp-controller="Creator" asp-action="DeleteRecord" asp-route-ID="@order.ID" class="btn btn-warning">Удалить запись</a>
+        </div>
+        }
+    </div>

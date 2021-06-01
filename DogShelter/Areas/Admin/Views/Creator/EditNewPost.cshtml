@@ -1,0 +1,34 @@
+﻿@model DogShelter.Models.EditNewViewModel;
+
+<div class="container mt-3" asp-validation-summary="All">
+    <h3>Редактировать новость</h3>
+    <form asp-area="Admin" asp-controller="Creator" asp-action="EditNewPost" method="post" enctype="multipart/form-data">
+
+        <input asp-for="EditNew.ID" type="hidden" />
+        <input asp-for="EditNew.ImgPath" type="hidden" />
+        <div class="form-group">
+            <label asp-for="EditNew.Title">Название</label>
+            <input asp-for="EditNew.Title" required="">
+            <span asp-validation-for="EditNew.Title"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EditNew.ShortDesc">Краткое описание</label>
+            <input asp-for="EditNew.ShortDesc" class="form-control" required="">
+            <span asp-validation-for="EditNew.ShortDesc"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EditNew.Desc">Полное описание</label>
+            <textarea asp-for="EditNew.Desc" class="form-control" required="" rows="15"></textarea>
+            <span asp-validation-for="EditNew.Desc"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Img">Обновить фото</label>
+            <input asp-for="Img" class="form-control-file" accept="image/jpeg,image/png" type="file" multiple />
+            <span asp-validation-for="Img"></span>
+
+            <img src="@Model.EditNew.ImgPath" class="m-3" style="width: 400px;" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Обновить</button>
+    </form>
+</div>

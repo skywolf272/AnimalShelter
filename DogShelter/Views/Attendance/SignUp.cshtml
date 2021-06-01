@@ -1,0 +1,15 @@
+﻿@model SignUpViewModel
+
+<div class="container right-panel-active">
+    <!-- Sign Up -->
+    <div class="container__form container--signup">
+        <form asp-controller="Attendance" asp-action="SingUpSave" class="form-group card" method="post" style="width: 550px;">
+            <input asp-for="Appointment.DogID" type="hidden" />
+            <h2 class="m-3">Записаться на время @Model.Date.Day.@Model.Date.Month.@Model.Date.Year @Model.Date.Hour:00 </h2>
+            <input asp-for="Appointment.FirstName" placeholder="Имя" class="input p-3 m-3" required="" />
+            <input asp-for="Appointment.Tel" type="tel" placeholder="Телефон" class="input p-3 m-3" required="" />
+            <input asp-for="Appointment.DateTime" type="hidden" value="@Model.Date" class="p-3 m-3" />
+            <button class="btn btn-info">Записаться</button>
+        </form>
+    </div>
+</div>

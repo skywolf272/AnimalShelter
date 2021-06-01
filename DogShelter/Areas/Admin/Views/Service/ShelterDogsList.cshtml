@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DogShelter.Models.Dog>
+        <div class="container" style=" margin-left: 20%;">
+            <a class="btn btn-primary mt-3 mb-3 ml-auto mr-auto" asp-area="Admin" asp-controller="Creator" asp-action="DogPost">Написать пост</a>
+        </div>
+    <div class="d-flex mt-3 flex-wrap">
+        @foreach (Dog dog in Model)
+        {
+        <div class="box-shadow rounded shadow-lg d-flex m-3" style="max-height: 350px; width: 900px;">
+            <img class="rounded" style="height: 100%; background-size: cover;" src="@dog.ImgPath" data-holder-rendered="true">
+
+            <ul class="list-group list-group-flush p-4" style="width: 100%">
+                <h3>@dog.Nickname</h3>
+                <li class="list-group-item">Возраст: @dog.Age</li>
+                @{
+                    if (dog.Male)
+                    {
+                        <li class="list-group-item">Пол: мужской</li>
+                    }
+                    else
+                    {
+                        <li class="list-group-item">Пол: женский</li>
+                    }
+                }
+                <li class="list-group-item">Краткое описание: @dog.ShortDesc</li>
+                <div class="d-flex p-3 justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a class="btn btn-sm btn-outline-secondary bg-primary text-white" asp-area="Admin" asp-controller="Service" asp-action="MoreAboutDog" asp-route-ID="@dog.ID">Узнать больше</a>
+                        <a class="btn btn-sm btn-outline-secondary bg-primary text-white" asp-area="Admin" asp-controller="Creator" asp-action="EditDogPost" asp-route-ID="@dog.ID">Изменить пост</a>
+                        <a class="btn btn-sm btn-outline-secondary bg-warning text-white" asp-area="Admin" asp-controller="Creator" asp-action="DeleteDogPost" asp-route-ID="@dog.ID">Удалить пост</a>
+                    </div>
+                    <small class="text-muted">@dog.DogPostDate.Day.@dog.DogPostDate.Month.@dog.DogPostDate.Year</small>
+                </div>
+            </ul>
+        </div>
+        }
+    </div>

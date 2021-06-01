@@ -1,0 +1,75 @@
+﻿@model DogShelter.Models.MoreAboutViewModel
+
+<div class="courses-container">
+    <div class="course" style="height: 600px;">
+
+        <img src="@Model.DogPost.ImgPath" style="background:center; background-size: cover; height: 100%" />
+
+        <div class="course-info">
+            <div class="brand-wrapper">
+                <h1>@Model.DogPost.Nickname</h1>
+            </div>
+            @if (Model.DogPost.Male)
+            {
+            <p class="login-card-description">Пол: мальчик</p> 
+            }
+            else
+            {
+            <p class="login-card-description">Пол: девочка</p>
+            }
+            <div class="form-group">
+                <p>Возраст: @Model.DogPost.Age</p>
+            </div>
+            <div class="form-group mb-4">
+                <p>Описание: @Model.DogPost.Desc</p>
+            </div>
+            <small class=" text-muted align-self-end">@Model.DogPost.DogPostDate.Day.@Model.DogPost.DogPostDate.Month.@Model.DogPost.DogPostDate.Year</small>
+        </div>
+
+
+        <div class='showHide'>
+            <input type="checkbox" id="toggle" />
+
+            <label for="toggle">
+                <span class='expand btn text-dark' style="background-color:#B0E0E1;">
+                    <span class="changeArrow arrow-up">↑</span>
+                    <span class="changeArrow arrow-dn">↓</span>
+                    Выбрать день для посещения
+                </span>
+            </label>
+
+            <div class="fieldsetContainer">
+                <fieldset id="fdstLorem">
+
+                    <table class="table rounded p-5" style="width: 70%; margin-left: auto; margin-right: auto; background-color: #B0E0E1">
+                        <thead>
+                            @{ DateTime dateView = DogShelter.Service.WeekStart.StartOfWeek(DateTime.Now, DayOfWeek.Monday);}
+                        </thead>
+                        <tbody>
+                    @foreach (var freeDatetime in Model.FreeDatetimes)
+                    {
+                    <tr class="p-3">
+                        <td class="align-middle">@dateView.AddDays(freeDatetime.Key).Day.@dateView.AddDays(freeDatetime.Key).Month.@dateView.AddDays(freeDatetime.Key).Year</td>
+                        @for (int i = 0; i < freeDatetime.Value.Count; i++)
+                        {
+                        <td style="padding: 0;">
+                            <div class="block" style="width: 80px; height: 40px;">
+                                <form asp-controller="Attendance" asp-action="SignUp" method="post">
+                                    <div class="hover" style="width:100%; height:100%;"><button asp-controller="Service" asp-action="SignUp" asp-route-dateToSend="@(freeDatetime.Value[i].ToString())" asp-route-ID="@Model.DogPost.ID" type="submit" class="btn text-dark" style="border:solid 2px #B0E0E1;background-color:white;width:100%; height: 100%;">@freeDatetime.Value[i].Hour:00</button></div> <!-- видимый элемент -->
+                                    <span class="hidden">Время свободно</span> <!-- скрытый элемент -->
+                                </form>
+                            </div>
+                        </td>
+                        }
+                    </tr>
+                    }
+                        </tbody>
+                    </table>
+
+                </fieldset>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@model DogShelter.Models.News
+
+<div class="container mt-3" style="width:80%">
+    @{
+        if (Model != null)
+        {
+            <h2 class="font-weight-bold">
+                @Model.Title
+            </h2>
+            <p class="font-weight-light">
+                    @Model.NewsDate.Year.@Model.NewsDate.Month.@Model.NewsDate.Day
+            </p>
+            <p style="white-space: pre-line;">
+                @Model.Desc
+            </p>
+            <img style="margin-left:30%; height: 500px;" src="@Model.ImgPath">
+        }
+    }
+</div>
