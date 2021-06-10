@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oqKC3UkHAsnadpBZNyuF4AX8aggGXGTCnX9ocLfdocE8Nae49Mepz6K81KwEJqUW9zPuaeTGK33W8KfzYhVglw==",
+  "dgSpecHash": "T/gtGtGGHNlEBAuKnB4i6YbSOwQGw3In58b2at11LIIGKCu2Sw5gvHMpg2+uDaUGB97YYj2dhyCGp+9HHveWSQ==",
   "success": true,
-  "projectFilePath": "C:\\programming\\c# ASP\\AnimalShelter-master\\DogShelter\\DogShelter.csproj",
+  "projectFilePath": "C:\\programming\\c# ASP\\AnimalShelter\\DogShelter\\DogShelter.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\skywo\\.nuget\\packages\\bootstrap\\4.6.0\\bootstrap.4.6.0.nupkg.sha512",
     "C:\\Users\\skywo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

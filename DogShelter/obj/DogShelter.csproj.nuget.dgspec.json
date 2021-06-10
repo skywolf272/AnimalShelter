@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\programming\\c# ASP\\AnimalShelter-master\\DogShelter\\DogShelter.csproj": {}
+    "C:\\programming\\c# ASP\\AnimalShelter\\DogShelter\\DogShelter.csproj": {}
   },
   "projects": {
-    "C:\\programming\\c# ASP\\AnimalShelter-master\\DogShelter\\DogShelter.csproj": {
+    "C:\\programming\\c# ASP\\AnimalShelter\\DogShelter\\DogShelter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\programming\\c# ASP\\AnimalShelter-master\\DogShelter\\DogShelter.csproj",
+        "projectUniqueName": "C:\\programming\\c# ASP\\AnimalShelter\\DogShelter\\DogShelter.csproj",
         "projectName": "DogShelter",
-        "projectPath": "C:\\programming\\c# ASP\\AnimalShelter-master\\DogShelter\\DogShelter.csproj",
+        "projectPath": "C:\\programming\\c# ASP\\AnimalShelter\\DogShelter\\DogShelter.csproj",
         "packagesPath": "C:\\Users\\skywo\\.nuget\\packages\\",
-        "outputPath": "C:\\programming\\c# ASP\\AnimalShelter-master\\DogShelter\\obj\\",
+        "outputPath": "C:\\programming\\c# ASP\\AnimalShelter\\DogShelter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\skywo\\AppData\\Roaming\\NuGet\\NuGet.Config",
