@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DogShelter
 {
-    public class Program
+    public class Program //Запуск приложения
     {
         public static void Main(string[] args)
         {
