@@ -18,22 +18,23 @@ namespace DogShelter
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        //Startup - ответсвтенен за настройку всего приложения при записук
+        //Он настраивает сервисы, библиотеки которые мы использовали
+        public Startup(IConfiguration configuration) 
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("ShelterDatabase")));
+            options.UseSqlServer(Configuration.GetConnectionString("ShelterDatabase"))); //Настройка подключения к БД
 
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>(); //Настройка Asp Identity
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(); //Настраивает работу паттерна MVC
 
             services.Configure<IdentityOptions>(options =>
            {
@@ -46,10 +47,9 @@ namespace DogShelter
                options.Lockout.AllowedForNewUsers = true;
 
                options.User.RequireUniqueEmail = false;
-           });
-        }
+           }); //Настройка для входа пользоателя в аккаунт
+           }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -59,7 +59,6 @@ namespace DogShelter
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -67,7 +66,8 @@ namespace DogShelter
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
-
+            
+            //Настройка приложения и конечных точек
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
